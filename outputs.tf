@@ -13,3 +13,4 @@ output "SUBNET_IDS" {
 output "SUBNET_CIDR" {
   value = aws_subnet.main.*.cidr_block
 }
+
