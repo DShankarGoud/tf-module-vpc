@@ -17,7 +17,7 @@ resource "aws_ec2_transit_gateway_route_table" "app-vpc" {
 }
 
 resource "aws_ec2_transit_gateway_route_table_association" "default-vpc-tgw-attach" {
-  transit_gateway_attachment_id  = aws_ec2_transit_gateway_vpc_attachment.component-attach.id
+  transit_gateway_attachment_id  = data.terraform_remote_state.tgw.outputs.DEFAULT_VPC_TRANSIT_GW_ATTACHMENT
   transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.app-vpc.id
 }
 
